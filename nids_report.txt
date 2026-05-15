@@ -1,0 +1,123 @@
+=================================================================
+      NETWORK INTRUSION DETECTION SYSTEM — REPORT
+      Generated : 2026-04-23 02:13:59
+=================================================================
+
+[ TRAFFIC SUMMARY ]
+  Total Packets Analysed : 30
+  Total Alerts Generated : 13
+  CRITICAL               : 7
+  HIGH                   : 2
+  MEDIUM                 : 4
+
+[ THREAT CATEGORIES DETECTED ]
+  • MALWARE (4 alerts)
+  • BOTNET (2 alerts)
+  • EXPLOIT (1 alert)
+  • RECONNAISSANCE (1 alert)
+  • WEB ATTACK (2 alerts)
+  • COMMAND & CONTROL (3 alerts)
+
+[ DETAILED ALERTS ]
+
+  [1] [CRITICAL] Known Malware Port  (RULE-003)
+      Category  : MALWARE
+      Source IP : 192.168.1.40
+      Dest IP   : 203.0.113.99
+      Time      : 2024-01-10 08:15:00
+      Detail    : Traffic on port 4444 (Metasploit reverse shell) between 192.168.1.40 → 203.0.113.99
+
+  [2] [CRITICAL] Known Malware Port  (RULE-003)
+      Category  : MALWARE
+      Source IP : 203.0.113.99
+      Dest IP   : 192.168.1.40
+      Time      : 2024-01-10 08:15:01
+      Detail    : Traffic on port 4444 (Metasploit reverse shell) between 203.0.113.99 → 192.168.1.40
+
+  [3] [CRITICAL] Known Malware Port  (RULE-003)
+      Category  : MALWARE
+      Source IP : 91.191.209.150
+      Dest IP   : 192.168.1.1
+      Time      : 2024-01-10 08:45:00
+      Detail    : Traffic on port 1337 (backdoor/RAT) between 91.191.209.150 → 192.168.1.1
+
+  [4] [CRITICAL] IRC Botnet Traffic  (RULE-004)
+      Category  : BOTNET
+      Source IP : 45.33.32.156
+      Dest IP   : 192.168.1.100
+      Time      : 2024-01-10 08:10:00
+      Detail    : IRC botnet C2 traffic detected — payload: 'JOIN #botnet NICK zombie123'
+
+  [5] [CRITICAL] IRC Botnet Traffic  (RULE-004)
+      Category  : BOTNET
+      Source IP : 192.168.1.100
+      Dest IP   : 45.33.32.156
+      Time      : 2024-01-10 08:11:00
+      Detail    : IRC botnet C2 traffic detected — payload: 'PRIVMSG #botnet :ready'
+
+  [6] [CRITICAL] EternalBlue / SMB Exploit  (RULE-007)
+      Category  : EXPLOIT
+      Source IP : 10.0.0.9
+      Dest IP   : 10.0.0.10
+      Time      : 2024-01-10 08:32:00
+      Detail    : EternalBlue exploit attempt (MS17-010) detected: 10.0.0.9 → 10.0.0.10
+
+  [7] [CRITICAL] Shell Command in Payload  (RULE-010)
+      Category  : MALWARE
+      Source IP : 192.168.1.40
+      Dest IP   : 203.0.113.99
+      Time      : 2024-01-10 08:15:00
+      Detail    : Shell command 'cmd.exe' found in packet payload — possible RCE
+
+  [8] [HIGH] Port Scan Detection  (RULE-001)
+      Category  : RECONNAISSANCE
+      Source IP : 203.0.113.5
+      Dest IP   : multiple
+      Time      : 2024-01-10 08:00:02
+      Detail    : 203.0.113.5 scanned 10 ports at 2024-01-10 08:00:02: [21, 22, 23, 25, 445, 1433, 3306, 3389, 5432, 8080]
+
+  [9] [HIGH] SQL Injection Attempt  (RULE-005)
+      Category  : WEB ATTACK
+      Source IP : 192.168.1.60
+      Dest IP   : 192.168.1.200
+      Time      : 2024-01-10 08:20:00
+      Detail    : SQL injection pattern detected in HTTP request from 192.168.1.60
+
+  [10] [MEDIUM] Suspicious External DNS Query  (RULE-008)
+      Category  : COMMAND & CONTROL
+      Source IP : 10.0.0.7
+      Dest IP   : 10.0.0.1
+      Time      : 2024-01-10 08:02:00
+      Detail    : DNS query to suspicious TLD: aabbccddee112233.malware-c2.ru
+
+  [11] [MEDIUM] Suspicious External DNS Query  (RULE-008)
+      Category  : COMMAND & CONTROL
+      Source IP : 10.0.0.7
+      Dest IP   : 10.0.0.1
+      Time      : 2024-01-10 08:02:01
+      Detail    : DNS query to suspicious TLD: xfiltrate-data-here.evil.cc
+
+  [12] [MEDIUM] Suspicious External DNS Query  (RULE-008)
+      Category  : COMMAND & CONTROL
+      Source IP : 10.0.0.7
+      Dest IP   : 10.0.0.1
+      Time      : 2024-01-10 08:02:02
+      Detail    : DNS query to suspicious TLD: 99887766aabbcc.botnet.pw
+
+  [13] [MEDIUM] XSS Attempt  (RULE-006)
+      Category  : WEB ATTACK
+      Source IP : 192.168.1.60
+      Dest IP   : 192.168.1.200
+      Time      : 2024-01-10 08:20:01
+      Detail    : XSS pattern detected in HTTP request from 192.168.1.60
+
+[ RECOMMENDED ACTIONS ]
+  !! CRITICAL threats found — isolate affected hosts immediately
+  !! Block source IPs at firewall
+  !! Escalate to incident response team
+  !  HIGH alerts — investigate source IPs, review firewall rules
+  ~  MEDIUM alerts — monitor and review within 24 hours
+
+=================================================================
+  END OF REPORT
+=================================================================

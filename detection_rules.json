@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "id": "RULE-001",
+      "name": "Port Scan Detection",
+      "description": "Single IP hitting 8+ distinct ports within the same second",
+      "severity": "HIGH",
+      "category": "RECONNAISSANCE"
+    },
+    {
+      "id": "RULE-002",
+      "name": "Suspicious DNS - Long Subdomain",
+      "description": "DNS query with subdomain longer than 30 chars (possible DNS tunnelling or C2)",
+      "severity": "HIGH",
+      "category": "COMMAND & CONTROL"
+    },
+    {
+      "id": "RULE-003",
+      "name": "Known Malware Port",
+      "description": "Traffic on port 4444 (Metasploit default) or 1337 (common backdoor)",
+      "severity": "CRITICAL",
+      "category": "MALWARE"
+    },
+    {
+      "id": "RULE-004",
+      "name": "IRC Botnet Traffic",
+      "description": "IRC protocol traffic (port 6667) — commonly used by botnets for C2",
+      "severity": "CRITICAL",
+      "category": "BOTNET"
+    },
+    {
+      "id": "RULE-005",
+      "name": "SQL Injection Attempt",
+      "description": "HTTP payload contains SQL injection patterns",
+      "severity": "HIGH",
+      "category": "WEB ATTACK"
+    },
+    {
+      "id": "RULE-006",
+      "name": "XSS Attempt",
+      "description": "HTTP payload contains cross-site scripting patterns",
+      "severity": "MEDIUM",
+      "category": "WEB ATTACK"
+    },
+    {
+      "id": "RULE-007",
+      "name": "EternalBlue / SMB Exploit",
+      "description": "SMB traffic containing MS17-010 exploit signatures",
+      "severity": "CRITICAL",
+      "category": "EXPLOIT"
+    },
+    {
+      "id": "RULE-008",
+      "name": "Suspicious External DNS Query",
+      "description": "DNS query to known suspicious TLDs (.ru, .cc, .pw, .tk)",
+      "severity": "MEDIUM",
+      "category": "COMMAND & CONTROL"
+    },
+    {
+      "id": "RULE-009",
+      "name": "Telnet Login Attempt",
+      "description": "Telnet traffic detected — unencrypted, high risk protocol",
+      "severity": "MEDIUM",
+      "category": "CREDENTIAL ATTACK"
+    },
+    {
+      "id": "RULE-010",
+      "name": "Shell Command in Payload",
+      "description": "Packet payload contains shell command patterns (cmd.exe, /bin/sh)",
+      "severity": "CRITICAL",
+      "category": "MALWARE"
+    }
+  ]
+}
