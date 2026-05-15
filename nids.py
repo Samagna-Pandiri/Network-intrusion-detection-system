@@ -2,7 +2,7 @@
 """
 =============================================================
   NETWORK INTRUSION DETECTION SYSTEM (NIDS)
-  Author: [Your Name]
+  Author: Samagna Pandiri
   Description: Analyses network packet captures to detect
                intrusion attempts, malware, exploits, and
                suspicious network behaviour — mirroring
